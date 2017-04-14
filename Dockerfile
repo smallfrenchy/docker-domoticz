@@ -35,10 +35,13 @@ RUN \
 	make \
 	mosquitto-dev \
 	musl-dev \
+	openssl \
+	openssl-dev \
 	pkgconf \
 	sqlite-dev \
 	tar \
 	zlib-dev && \
+	
 
 # install telldus-core build-dependencies
  apk add --no-cache --virtual=telldus-build-dependencies \
@@ -50,7 +53,12 @@ RUN \
 
 # add runtime packages required in build stage
  apk add --no-cache \
-	python3-dev && \
+ 	python-dev \
+	python3-dev \
+	libffi-dev && \
+
+ pip3 install --upgrade pip && \
+  pip install paramiko && \
 
 # link libftdi as the alpine guys named the libs wrong
  ln -s /usr/lib/libftdi1.so /usr/lib/libftdi.so && \
