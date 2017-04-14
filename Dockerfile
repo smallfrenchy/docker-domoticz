@@ -35,8 +35,6 @@ RUN \
 	make \
 	mosquitto-dev \
 	musl-dev \
-	openssl \
-	openssl-dev \
 	pkgconf \
 	sqlite-dev \
 	tar \
